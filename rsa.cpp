@@ -21,7 +21,7 @@ cpp_int modPow(cpp_int mas, cpp_int e, cpp_int mod) {
         if (e % 2 == 1) {
             result = (result * mas) % mod;
         }
-        e = e >> 1;
+        e = e / 2;
         mas = (mas * mas) % mod;
     }
     return result;
@@ -71,9 +71,9 @@ cpp_int DecryptBlock(cpp_int c, cpp_int d, cpp_int n) {
     return modPow(c, d, n);
 }
 
-std::vector<cpp_int> EncryptText(const std::string &message, cpp_int e, cpp_int n, int l) {
+std::vector<cpp_int> EncryptText(const std::string &message, cpp_int e, cpp_int n) {
     std::vector<cpp_int> encryptedBlocks;
-    size_t blockSize = l;
+    size_t blockSize = 3;
     for (size_t i = 0; i < message.size(); i += blockSize) {
         std::string block = message.substr(i, blockSize);
         cpp_int m = TextToNumber(block);

@@ -8,7 +8,7 @@
 using namespace boost::multiprecision;
 
 bool Prime_number(cpp_int n);
-cpp_int modPow(cpp_int base, cpp_int exp, cpp_int mod);
+cpp_int modPow(cpp_int mas, cpp_int exp, cpp_int mod);
 cpp_int GenerateKey(cpp_int p, cpp_int q);
 cpp_int TextToNumber(const std::string &text);
 std::string NumberToText(cpp_int num);
